@@ -1,3 +1,3 @@
-# Summary
+# KaguyaHDL Docs
 
-- [Chapter 1](./chapter_1.md)
+- [关于本文档](./about.md)
