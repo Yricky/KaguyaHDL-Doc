@@ -3,8 +3,7 @@
     <head>
         <!-- Book generated using mdBook -->
         <meta charset="UTF-8">
-        <title>KaguyaHDL</title>
-        <meta name="robots" content="noindex" />
+        <title>开始入门 - KaguyaHDL</title>
 
 
         <!-- Custom HTML head -->
@@ -84,7 +83,7 @@
 
         <nav id="sidebar" class="sidebar" aria-label="Table of contents">
             <div class="sidebar-scrollbox">
-                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">KaguyaHDL</a></li><li class="chapter-item expanded "><a href="c1.html"><strong aria-hidden="true">1.</strong> 开始入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c1_1.html"><strong aria-hidden="true">1.1.</strong> 第一个KaguyaHDL项目</a></li></ol></li></ol>
+                <ol class="chapter"><li class="chapter-item expanded affix "><a href="about.html">KaguyaHDL</a></li><li class="chapter-item expanded "><a href="c1.html" class="active"><strong aria-hidden="true">1.</strong> 开始入门</a></li><li><ol class="section"><li class="chapter-item expanded "><a href="c1_1.html"><strong aria-hidden="true">1.1.</strong> 第一个KaguyaHDL项目</a></li></ol></li></ol>
             </div>
             <div id="sidebar-resize-handle" class="sidebar-resize-handle"></div>
         </nav>
@@ -167,64 +166,22 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="kaguyahdl"><a class="header" href="#kaguyahdl">KaguyaHDL</a></h1>
-<p>CHISEL? CHIKEL!</p>
-<blockquote>
-<p>本篇文档是KaguyaHDL的使用手册</p>
-</blockquote>
-<p><a href="https://gitee.com/sjtuYricky/kaguya-hdl">KaguyaHDL</a>是一个使用kotlin编写的硬件描述语言。</p>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="开始入门"><a class="header" href="#开始入门">开始入门</a></h1>
+                        <h1 id="开始入门"><a class="header" href="#开始入门">开始入门</a></h1>
 <blockquote>
 <p>KaguyaHDL 是一种用 Kotlin(JVM) 编写的硬件描述语言。 为了开始使用 KotlinHDL 进行编程, 你必须拥有 JVM 以及 Kotlin 编译器。话是这么说，但事实上你只需要下载最新的Intellij Idea集成开发工具，然后按照本章的步骤来就行了</p>
 </blockquote>
-<div style="break-before: page; page-break-before: always;"></div><h1 id="第一个kaguyahdl项目"><a class="header" href="#第一个kaguyahdl项目">第一个KaguyaHDL项目</a></h1>
-<h2 id="新建项目"><a class="header" href="#新建项目">新建项目</a></h2>
-<p>使用IntelliJ Idea创建新项目，按照如下配置创建：
-<img src="./assets/Screenshot_20230730_000507.png" alt="New Project" />
-要点：</p>
-<ul>
-<li>语言选择Kotlin，显而易见</li>
-<li>构建系统推荐选择gradle，因为教程就是这么走的</li>
-<li>JDK版本选择17，没有的话可以到下拉框里面Add SDK下载一个17版本的</li>
-<li>Gradle DSL语言推荐选择Kotlin</li>
-</ul>
-<h2 id="添加kaguyahdl依赖包"><a class="header" href="#添加kaguyahdl依赖包">添加KaguyaHDL依赖包</a></h2>
-<p>创建好项目之后，打开 <code>build.gradle.kts</code> 文件，添加如下方框内容：
-<img src="./assets/Screenshot_20230730_001419.png" alt="build.gradle.kts" />
-要点：</p>
-<ul>
-<li>红色方框，为你的项目添加jitpack源，KaguyaHDL的包托管在这里</li>
-<li>紫色方框，为你的项目添加KaguyaHDL依赖。最好添加最新版本，目前的最新版本为：
-<a href="https://jitpack.io/#com.gitee.sjtuYricky/kaguya-hdl"><img src="https://jitpack.io/v/com.gitee.sjtuYricky/kaguya-hdl.svg" alt="" /></a></li>
-</ul>
-<p>添加好后，点击右上角<img src="./assets/Screenshot_20230730_002253.png" alt="gradle sync" />按钮同步整个项目</p>
-<h2 id="第一行代码"><a class="header" href="#第一行代码">第一行代码</a></h2>
-<p>要开始正式写代码了！现在让我们打开<code>src/main/kotlin/Main.kt</code>，这是idea为我们自动添加的源码文件。</p>
-<p>尝试在main函数写下如下代码并点击左边的三角运行一下吧</p>
-<pre><code class="language-kotlin">fun main(args: Array&lt;String&gt;) {
-    val module = module(&quot;inv&quot;){
-        inputWire(&quot;in&quot;).inv().exportAsOutput(&quot;out&quot;)
-    }
-    println(KaguyaVerilogCompiler().compile(module))
-}
-</code></pre>
-<blockquote>
-<p>代码解析：构建了一个名为<code>inv</code>的模块，该模块声明了一个名为<code>in</code>的输入信号，并将这个信号的取反导出为名为<code>out</code>的输出信号。随后将该模块使用内置的VerilogCompiler编译器编译后打印到控制台中。</p>
-</blockquote>
-<p>运行结果为：</p>
-<pre><code class="language-verilog">module inv(
-    input in,
-    output out
-);
-    assign out = ~in;
-endmodule
-</code></pre>
 
                     </main>
 
                     <nav class="nav-wrapper" aria-label="Page navigation">
                         <!-- Mobile navigation buttons -->
+                            <a rel="prev" href="about.html" class="mobile-nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                                <i class="fa fa-angle-left"></i>
+                            </a>
 
+                            <a rel="next" href="c1_1.html" class="mobile-nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                                <i class="fa fa-angle-right"></i>
+                            </a>
 
                         <div style="clear: both"></div>
                     </nav>
@@ -232,7 +189,13 @@ endmodule
             </div>
 
             <nav class="nav-wide-wrapper" aria-label="Page navigation">
+                    <a rel="prev" href="about.html" class="nav-chapters previous" title="Previous chapter" aria-label="Previous chapter" aria-keyshortcuts="Left">
+                        <i class="fa fa-angle-left"></i>
+                    </a>
 
+                    <a rel="next" href="c1_1.html" class="nav-chapters next" title="Next chapter" aria-label="Next chapter" aria-keyshortcuts="Right">
+                        <i class="fa fa-angle-right"></i>
+                    </a>
             </nav>
 
         </div>
@@ -255,11 +218,6 @@ endmodule
 
         <!-- Custom JS scripts -->
 
-        <script>
-        window.addEventListener('load', function() {
-            window.setTimeout(window.print, 100);
-        });
-        </script>
 
     </div>
     </body>
